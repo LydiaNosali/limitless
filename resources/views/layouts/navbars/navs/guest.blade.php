@@ -32,6 +32,10 @@
             <i class="material-icons">face</i> {{ __('Profile') }}
           </a>
         </li>
+
+          <li class="nav-item ">
+              <lang></lang>
+          </li>
       </ul>
     </div>
   </div>

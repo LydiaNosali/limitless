@@ -9,16 +9,16 @@
             @csrf
 
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header ">
                             <h4 class="card-title ">Sommaire des repertoires</h4>
                         </div>
                         <div class="card-body">
 
                             <div  class="row pt-10 col-md-10" >
 
-                                    <button   class="btn btn-xs btn-info pull-right"
+                                    <button   class="btn btn-xs btn-dark pull-right"
                                              onclick="window.location='{{ url("repertoire/sommaire") }}'"><i class="material-icons">view_list</i> Voir le sommaire des repertoires</button>
                                 </div>
 
@@ -27,16 +27,14 @@
 
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header ">
                             <h4 class="card-title ">Créer un repertoire</h4>
                         </div>
                         <div class="card-body">
                             <div  class="row pt-10 col-md-10" >
-                                <button   class="btn btn-xs btn-info pull-right"
+                                <button   class="btn btn-xs btn-dark pull-right"
                                           onclick="window.location='{{ url("repertoire/create") }}'"> <i class="material-icons">folder</i> Créer un repertoire</button>
                             </div>
                         </div>
@@ -45,17 +43,15 @@
                     </div>
 
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header ">
                             <h4 class="card-title ">Supprimer un repertoire</h4>
                         </div>
                         <div class="card-body">
                             <div  class="row pt-10 col-md-10" >
-                                <button   class="btn btn-xs btn-info pull-right"
+                                <button   class="btn btn-xs btn-dark pull-right"
                                           onclick="window.location='{{ url("repertoire/supprimer") }}'"> <i class="material-icons">delete</i> Supprimer un repertoire</button>
                             </div>
                         </div>
@@ -64,7 +60,7 @@
                     </div>
 
                 </div>
-            </div>
+    </div>
     </div>
     </div>
 

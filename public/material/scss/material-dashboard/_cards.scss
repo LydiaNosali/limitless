@@ -169,6 +169,14 @@
     &.card-rotate.bg-primary .back{
       background: linear-gradient(60deg, $purple-400, $purple-600);
     }
+    .card-header-dark .card-icon,
+    .card-header-dark .card-text,
+    .card-header-dark:not(.card-header-icon):not(.card-header-text),
+    &.bg-primary,
+    &.card-rotate.bg-dark .front,
+    &.card-rotate.bg-dark .back{
+        background: linear-gradient(60deg, $dark-400, $dark-600);
+    }
     .card-header-info .card-icon,
     .card-header-info .card-text,
     .card-header-info:not(.card-header-icon):not(.card-header-text),

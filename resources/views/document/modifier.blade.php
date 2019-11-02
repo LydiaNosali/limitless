@@ -1,3 +1,4 @@
+
 @extends('layouts.app', ['activePage' => 'document', 'titlePage' => __('Document')])
 @section('content')
     <div class="content">
@@ -11,75 +12,160 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
-                            <h4 class="card-title ">Annuler un document</h4>
+                        <div class="card-header ">
+                            <h4 class="card-title ">Modifier un document existant</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('document') }}" class="btn btn-sm btn-primary">{{ __('Revenir en arriére') }}</a>
+                                <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
                             </div>
-                            <div class="col-8">
 
-                        <form action="/document/annuler" enctype="multipart/form-data" method="post">
-                            @csrf
-                            <div class="row">
+                            <form action="/document/modifier" enctype="multipart/form-data" method="post">
+                                @csrf
+                                <div class="row">
 
-                                <label for="document" class="col-md-3 col-form-label ">Nom du Document</label>
-                                <div class="col-sm-7">
-                                    <div class="input-group">
+                                    <label for="repertoire" class="col-md-3 col-form-label ">Nom du repertoire</label>
+                                    <div class="col-sm-7">
+                                        <div class="input-group">
 
-                                        <input id="document" name="document" type="text" class="form-control" placeholder="Document"/>
+                                            <input id="repertoire" name="repertoire" type="text" class="form-control" placeholder="Repertoire"/>
+
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                $( "#repertoire" ).autocomplete({
+
+                                                    source: function(request, response) {
+                                                        $.ajax({
+                                                            url: "{{url('autocomplete')}}",
+                                                            data: {
+                                                                term : request.term
+                                                            },
+                                                            dataType: "json",
+                                                            success: function(data){
+                                                                var resp = $.map(data,function(obj){
+
+                                                                    return obj.repertoire;
+
+                                                                });
+                                                                response(resp)
+                                                                ;}});},
+                                                    minLength: 1
+                                                });});
+
+
+                                        </script>
 
                                     </div>
-                                    <script type="text/javascript">
-                                        $(document).ready(function() {
-                                            $( "#document" ).autocomplete({
+                                </div>
+                                <div class="row">
 
-                                                source: function(request, response) {
-                                                    $.ajax({
-                                                        url: "{{url('autocompleted')}}",
-                                                        data: {
-                                                            term : request.term
-                                                        },
-                                                        dataType: "json",
-                                                        success: function(data){
-                                                            var resp = $.map(data,function(obj){
+                                    <label for="document" class="col-md-3 col-form-label ">Nom du Document</label>
+                                    <div class="col-sm-7">
+                                        <div class="input-group">
 
-                                                                return obj.document;
+                                            <input id="document" name="document" type="text" class="form-control" placeholder="Document"/>
 
-                                                            });
-                                                            response(resp)
-                                                            ;}});},
-                                                minLength: 1
-                                            });});
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                $( "#document" ).autocomplete({
+
+                                                    source: function(request, response) {
+                                                        $.ajax({
+                                                            url: "{{url('autocompleted')}}",
+                                                            data: {
+                                                                term : request.term
+                                                            },
+                                                            dataType: "json",
+                                                            success: function(data){
+                                                                var resp = $.map(data,function(obj){
+
+                                                                    return obj.document;
+
+                                                                });
+                                                                response(resp)
+                                                                ;}});},
+                                                    minLength: 1
+                                                });});
 
 
-                                    </script>
+                                        </script>
+
+                                    </div>
+                                </div>               <div class="row">
+
+                                    <label for="document" class="col-md-3 col-form-label ">Nom du nouveau Document</label>
+                                    <div class="col-sm-7">
+                                        <div class="input-group">
+
+                                            <input id="document" name="document" type="text" class="form-control" placeholder="Document"/>
+
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                $( "#document" ).autocomplete({
+
+                                                    source: function(request, response) {
+                                                        $.ajax({
+                                                            url: "{{url('autocompleted')}}",
+                                                            data: {
+                                                                term : request.term
+                                                            },
+                                                            dataType: "json",
+                                                            success: function(data){
+                                                                var resp = $.map(data,function(obj){
+
+                                                                    return obj.document;
+
+                                                                });
+                                                                response(resp)
+                                                                ;}});},
+                                                    minLength: 1
+                                                });});
+
+
+                                        </script>
+
+                                    </div>
+                                </div>
+                                <div class type="row">
+                                    <label for="document" class="col-md-3 col-form-label ">Document annule</label>
+                                    <div class="col-sm-7">
+
+                                        <div>
+                                            <input type="radio" checked=false name="annule"> Oui
+                                            <input type="radio" name="annule"> Non
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="file" class="col-md-3 col-form-label ">Remplacer document par</label>
+                                    <div class="col-sm-7">
+                                        <input type="file", class="form-control-file" id="file" name="file">
+                                    </div>
 
                                 </div>
-                            </div>
+                                <div class="row pt-4">
+                                    <button  type="submit" class="btn btn-dark">Remplacer document</button>
+
+                                </div>
 
 
+                            </form>
 
-                            <div class="row pt-4">
-                                <button  type="submit" class="btn btn-primary">Annuler document</button>
-
-                            </div>
-
-
-                        </form>
-
+                        </div>
 
 
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     </div>
 
-
-
-    </div>
-    </div>
 @endsection
+
 

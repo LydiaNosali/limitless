@@ -16,6 +16,7 @@
     <link href="{{ asset('material') }}/css/material-dashboard.css?v=2.1.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{ asset('material') }}/demo/demo.css" rel="stylesheet" />
+
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -147,7 +148,8 @@
         <script src="{{ asset('material') }}/js/settings.js"></script>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
-
+        <script src="{{asset('js/app.js')}}" defer></script>
         @stack('js')
+
     </body>
 </html>

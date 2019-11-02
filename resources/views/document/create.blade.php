@@ -12,12 +12,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header ">
                             <h4 class="card-title ">Ajouter un nouveau document</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('document') }}" class="btn btn-sm btn-primary">{{ __('Revenir en arriére') }}</a>
+                                <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
                             </div>
 
                             <form action="/document/create" enctype="multipart/form-data" method="post">
@@ -112,7 +112,7 @@
 
                                 </div>
                                 <div class="row pt-4">
-                                    <button  type="submit" class="btn btn-primary">Ajouter nouveau document</button>
+                                    <button  type="submit" class="btn btn-dark">Ajouter nouveau document</button>
 
                                 </div>
 
@@ -128,12 +128,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header ">
                             <h4 class="card-title ">Voici vos document</h4>
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('document') }}" class="btn btn-sm btn-primary">{{ __('Revenir en arriére') }}</a>
+                                <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
                             </div>
 
                             <div class="col-8">

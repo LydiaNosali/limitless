@@ -10,7 +10,6 @@ class RepertoireController extends Controller
     public function AjoutRep()
     {
         $data=DB::table('repertoire')->get();
-        //$ame=$data->input('repertoireid');
 
         return view('repertoire',compact('data'));
     }

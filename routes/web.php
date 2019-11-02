@@ -53,7 +53,20 @@ Route::group(['middleware' => 'auth'], function () {
         return view('document.annuler');
     })->name('document/annuler');
 
+    Route::post('/document/modifier', function () {
+        return view('document.modifier');
+    })->name('document/modifier');
+
+    Route::get('/document/modifier', function () {
+        return view('document.modifier');
+    })->name('document/modifier');
+
+
     Route::post('/repertoire/supprimer', function () {
+        return view('repertoire.supprimer');
+    })->name('repertoire/supprimer');
+
+    Route::get('/repertoire/supprimer', function () {
         return view('repertoire.supprimer');
     })->name('repertoire/supprimer');
 
@@ -61,9 +74,14 @@ Route::group(['middleware' => 'auth'], function () {
         return view('repertoire.create');
     })->name('repertoire/create');
 
+    Route::post('/repertoire/create', function () {
+        return view('repertoire.create');
+    })->name('repertoire/create');
+
     Route::get('document', function () {
         return view('pages.document');
     })->name('document');
+
     Route::get('repertoire', function () {
         return view('pages.repertoire');
     })->name('repertoire');
