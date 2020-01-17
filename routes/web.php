@@ -1,32 +1,8 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::get('/', function () {
     return view('welcome');
 });
-
-/*Auth::routes();
-
-Route::get('/document/create', 'DocumentController@create');
-Route::post('/document', 'DocumentController@store');
-Route::get('/document/{id}', 'DocumentController@show');
-
-Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
-Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.show');
-Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');*/
-
-
-
 
 Auth::routes();
 
@@ -36,6 +12,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
+
+    Route::get('notifications', function () {
+        return view('pages.notifications');
+    })->name('notifications');
 
 	Route::post('document/create', function () {
 		return view('document.create');
@@ -61,6 +41,13 @@ Route::group(['middleware' => 'auth'], function () {
         return view('document.modifier');
     })->name('document/modifier');
 
+    Route::post('/document/sommaire', function () {
+        return view('document.sommaire');
+    })->name('document/sommaire');
+
+    Route::get('/document/sommaire', function () {
+        return view('document.sommaire');
+    })->name('document/sommaire');
 
     Route::post('/repertoire/supprimer', function () {
         return view('repertoire.supprimer');
@@ -78,6 +65,14 @@ Route::group(['middleware' => 'auth'], function () {
         return view('repertoire.create');
     })->name('repertoire/create');
 
+    Route::get('/repertoire/sommaire', function () {
+        return view('repertoire.sommaire');
+    })->name('repertoire/sommaire');
+
+    Route::post('/repertoire/sommaire', function () {
+        return view('repertoire.sommaire');
+    })->name('repertoire/sommaire');
+
     Route::get('document', function () {
         return view('pages.document');
     })->name('document');
@@ -89,14 +84,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('map', function () {
 		return view('pages.map');
 	})->name('map');
-
-	Route::get('notifications', function () {
-		return view('pages.notifications');
-	})->name('notifications');
-
-	Route::get('rtl-support', function () {
-		return view('pages.language');
-	})->name('language');
 
 
 });
@@ -110,7 +97,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('document/create', 'RepertoireController@index');
 Route::post('document/create', 'DocumentController@store');
-Route::post('document/annuler', 'DocumentController@update');
 Route::get('document/create', 'DocumentController@index');
+Route::post('document/annuler', 'DocumentController@update');
 Route::get('autocomplete', 'RepertoireController@search');
 Route::get('autocompleted', 'DocumentController@search');
+
+
+Route::post('repertoire/create', 'RepertoireController@store');
+Route::post('repertoire/supprimer', 'RepertoireController@update');

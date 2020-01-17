@@ -1,33 +1,38 @@
 <footer class="footer">
-    <div class="container-fluid">
+    <div class="container">
         <nav class="float-left">
             <ul>
                 <li>
-                    <a href="https://www.alsalamalgeria.com/">
-                        {{ __('AL SALAM BANK') }}
+                    <a href="https://limitless-consulting.dz/">
+                        {{ __('Limitless') }}
                     </a>
                 </li>
                 <li>
-                    <a href="https://creative-tim.com/presentation">
+                    <a href="https://limitless-consulting.dz/">
                         {{ __('A propos de nous') }}
                     </a>
                 </li>
                 <li>
-                    <a href="http://blog.creative-tim.com">
+                    <a href="https://limitless-consulting.dz/">
                         {{ __('Blog') }}
                     </a>
                 </li>
                 <li>
-                    <a href="https://www.creative-tim.com/license">
+                    <a href="https://limitless-consulting.dz/">
                         {{ __('Licenses') }}
                     </a>
                 </li>
             </ul>
         </nav>
         <div class="copyright float-right">
+            &copy;
             <script>
                 document.write(new Date().getFullYear())
-            </script>, créer par <a href="https://www.alsalamalgeria.com/" target="_blank">AL SALAM BANK</a>
+            </script>créé avec <i class="material-icons">favorite</i> par
+
+            <a style="color: orange;" href="https://limitless-consulting.dz/">
+                {{ __('Limitless') }}
+            </a>
         </div>
     </div>
 </footer>

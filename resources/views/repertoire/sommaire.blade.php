@@ -6,77 +6,55 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <div class="container-fluid">
-            @csrf
 
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
-                            <h4 class="card-title ">Annuler un document</h4>
+                        <div class="card-header">
+                            <h4 class="card-title ">Sommaire des repertoires</h4>
                         </div>
                         <div class="card-body">
-                            <div class="col-8">
-
-                        <form action="/document/annuler" enctype="multipart/form-data" method="post">
-                            @csrf
                             <div class="row">
-
-                                <label for="document" class="col-md-3 col-form-label ">Nom du Document</label>
-                                <div class="col-sm-7">
-                                    <div class="input-group">
-
-                                        <input id="document" name="document" type="text" class="form-control" placeholder="Document"/>
-
-                                    </div>
-                                    <script type="text/javascript">
-                                        $(document).ready(function() {
-                                            $( "#document" ).autocomplete({
-
-                                                source: function(request, response) {
-                                                    $.ajax({
-                                                        url: "{{url('autocompleted')}}",
-                                                        data: {
-                                                            term : request.term
-                                                        },
-                                                        dataType: "json",
-                                                        success: function(data){
-                                                            var resp = $.map(data,function(obj){
-
-                                                                return obj.document;
-
-                                                            });
-                                                            response(resp)
-                                                            ;}});},
-                                                minLength: 1
-                                            });});
-
-
-                                    </script>
-
+                                <div class="col-md-12 text-right">
+                                    <a href="{{ route('repertoire') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
                                 </div>
                             </div>
+                           <?php
+                            use App\Repertoire;
+                            $maxcols = 3;
+                            $i = 0;
 
+                            //Open the table and its first row
+                            echo "<table>";
+                                echo "<tr>";
+                                    $repertoires=Repertoire::get();
+                                    foreach($repertoires as $repertoire) {
 
+                                    if ($i == $maxcols) {
+                                    $i = 0;
+                                    echo "</tr><tr>";
+                                    }
 
-                            <div class="row pt-4">
-                                <button  type="submit" class="btn btn-primary">Annuler document</button>
+                                    echo "<td>$repertoire->repertoire</td>";
 
-                            </div>
+                                    $i++;
 
+                                    }
 
-                        </form>
+                                    //Add empty <td>'s to even up the amount of cells in a row:
+                                        while ($i <= $maxcols) {
+                                        echo "<td>&nbsp;</td>";
+                                    $i++;
+                                    }
 
-
-
+                                    //Close the table row and the table
+                                    echo "</tr>";
+                                echo "</table>"; ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    </div>
     </div>
 @endsection
 

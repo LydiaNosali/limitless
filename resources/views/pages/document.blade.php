@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-lg-5 col-md-6 col-sm-6">
                     <div class="card">
-                        <div class="card-header ">
+                        <div class="card-header  ">
                             <h4 class="card-title ">Modifier un document</h4>
                         </div>
                         <div class="card-body">

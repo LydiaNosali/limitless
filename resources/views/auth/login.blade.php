@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'login', 'title' => __('AL SALAM BANK')])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'login', 'title' => __('Limitless')])
 
 @section('content')
 <div class="container" style="height: auto;">
@@ -11,7 +11,7 @@
         @csrf
 
         <div class="card card-login card-hidden mb-3">
-          <div class="card-header card-header-info text-center">
+          <div class="card-header card-header-warning text-center">
             <h4 class="card-title"><strong>{{ __('S"identifier') }}</strong></h4>
             <div class="social-line">
               <a href="#pablo" class="btn btn-just-icon btn-link btn-white">
@@ -67,23 +67,19 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-info btn-link btn-lg">{{ __('On y va') }}</button>
+            <button type="submit" class="btn btn-warning btn-link btn-lg">{{ __('On y va') }}</button>
           </div>
         </div>
       </form>
       <div class="row">
-        <div class="col-6">
+        <div class="col-7" style="margin-left: 120px">
             @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}" class="text-light">
                     <small>{{ __('Mot de passe oublié?') }}</small>
                 </a>
             @endif
         </div>
-        <div class="col-6 text-right">
-            <a href="{{ route('register') }}" class="text-light">
-                <small>{{ __('Créer un nouveau compte') }}</small>
-            </a>
-        </div>
+
       </div>
     </div>
   </div>

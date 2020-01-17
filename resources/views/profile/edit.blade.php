@@ -10,7 +10,7 @@
                         @method('put')
 
                         <div class="card ">
-                            <div class="card-header ">
+                            <div class="card-header card-header-warning">
                                 <h4 class="card-title">{{ __('Modifier le Profile') }}</h4>
                                 <p class="card-category">{{ __('Les informations de l"utilisateur') }}</p>
                             </div>
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-dark">{{ __('Enregistrer') }}</button>
+                                <button type="submit" class="btn btn-warning">{{ __('Enregistrer') }}</button>
                             </div>
                         </div>
                     </form>
@@ -64,7 +64,7 @@
                         @method('put')
 
                         <div class="card ">
-                            <div class="card-header">
+                            <div class="card-header card-header-warning">
                                 <h4 class="card-title">{{ __('Changer le mot de passe') }}</h4>
                                 <p class="card-category">{{ __('Mot de passe') }}</p>
                             </div>
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-dark">{{ __('Changer le mot de passe') }}</button>
+                                <button type="submit" class="btn btn-warning">{{ __('Changer le mot de passe') }}</button>
                             </div>
                         </div>
                     </form>

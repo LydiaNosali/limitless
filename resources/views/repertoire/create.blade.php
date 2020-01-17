@@ -60,11 +60,11 @@
                                 </div>
                                 <div class="row">
 
-                                    <label for="repertoire" class="col-md-3 col-form-label ">Nom du repertoire</label>
+                                    <label for="fils" class="col-md-3 col-form-label ">Nom du repertoire</label>
                                     <div class="col-sm-7">
                                         <div class="input-group">
 
-                                            <input id="repertoire" name="repertoire" type="text" class="form-control" placeholder="Repertoire"/>
+                                            <input id="fils" name="fils" type="text" class="form-control" placeholder="Repertoire"/>
 
                                         </div>
 

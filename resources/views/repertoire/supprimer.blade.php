@@ -27,16 +27,16 @@
 
                                     <div class="row">
 
-                                        <label for="repertoire" class="col-md-3 col-form-label ">Nom du repertoire</label>
+                                        <label for="del" class="col-md-3 col-form-label ">Nom du repertoire</label>
                                         <div class="col-sm-7">
                                             <div class="input-group">
 
-                                                <input id="repertoire" name="repertoire" type="text" class="form-control" placeholder="Repertoire"/>
+                                                <input id="del" name="del" type="text" class="form-control" placeholder="Repertoire"/>
 
                                             </div>
                                             <script type="text/javascript">
                                                 $(document).ready(function() {
-                                                    $( "#repertoire" ).autocomplete({
+                                                    $( "#del" ).autocomplete({
 
                                                         source: function(request, response) {
                                                             $.ajax({
@@ -61,7 +61,6 @@
 
                                         </div>
                                     </div>
-                                </form>
 
                                 <div class="row pt-4">
                                     <button  type="submit" class="btn btn-dark">Supprimer le repertoire</button>

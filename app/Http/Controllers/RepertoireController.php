@@ -7,25 +7,41 @@ use Illuminate\Http\Request;
 
 class RepertoireController extends Controller
 {
-    public function AjoutRep()
-    {
-        $data=DB::table('repertoire')->get();
-
-        return view('repertoire',compact('data'));
-    }
-
-    public function insert(Request $request)
-    {
-        $pereid = $request->input('d');
-        $nomrepertoire= $request->input('nomrepertoire');
-        $lig=array('nom'=>'aya','niveau'=>1,'parent'=>1);
-        DB::table('repertoire')->insert($lig);
-        echo "good";
-    }
-
     public function index()
     {
-        return view('document.create');
+        return view('repertoire.create');
+    }
+    public function update()
+    {
+        $rep = request('del');
+
+       Repertoire::where('repertoire', '=',$rep)
+            ->delete();
+        //test si c'est le dernier niveau
+        return view('repertoire.supprimer');
+    }
+    public function store()
+    {
+        $id=0;
+        $niveau=0;
+        $rep = request('repertoire');
+        $resultat=Repertoire::where('repertoire', '=',$rep)
+            ->get();
+        foreach ($resultat as $repe) {
+            $pere=$repe->id;
+            $niveau=$repe->niveau;
+        }
+        $r=Repertoire::get();
+        foreach ($r as $repe) {
+            $id= $repe->id;
+        }
+        $repertoire = new Repertoire();
+        $repertoire->id=$id+1;
+        $repertoire->repertoire = request('fils');
+        $repertoire->niveau = $niveau+1;
+        $repertoire->parent = $pere;
+        $repertoire->save();
+        return view('repertoire.create');
     }
 
     public function search(Request $request)
@@ -34,4 +50,5 @@ class RepertoireController extends Controller
         $result = Repertoire::where('repertoire', 'LIKE', '%'. $search. '%')->get();
         return response()->json($result);
     }
+
 }

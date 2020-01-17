@@ -1,4 +1,4 @@
-@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'email', 'title' => __('AL SALAM BANK')])
+@extends('layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'email', 'title' => __('Limitless')])
 
 @section('content')
 <div class="container" style="height: auto;">
@@ -8,7 +8,7 @@
         @csrf
 
         <div class="card card-login card-hidden mb-3">
-          <div class="card-header card-header-info text-center">
+          <div class="card-header card-header-warning text-center">
             <h4 class="card-title"><strong>{{ __('Mot de passe oublié') }}</strong></h4>
           </div>
           <div class="card-body">
@@ -41,7 +41,7 @@
             </div>
           </div>
           <div class="card-footer justify-content-center">
-            <button type="submit" class="btn btn-info btn-link btn-lg">{{ __('Envoyer un lien de réinitialisation du mot de passe') }}</button>
+            <button type="submit" class="btn btn-warning btn-link btn-lg">{{ __('Envoyer un lien de réinitialisation') }}</button>
           </div>
         </div>
       </form>
