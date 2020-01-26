@@ -10,14 +10,14 @@
                         @method('put')
 
                         <div class="card ">
-                            <div class="card-header ">
+                            <div class="card-header-warning ">
                                 <h4 class="card-title">{{ __('Modifier utilisateur') }}</h4>
                                 <p class="card-category"></p>
                             </div>
                             <div class="card-body ">
                                 <div class="row">
                                     <div class="col-md-12 text-right">
-                                        <a href="{{ route('user.index') }}" class="btn btn-sm btn-dark">{{ __('Revenir à la liste') }}</a>
+                                        <a href="{{ route('user.index') }}" class="btn btn-sm btn-warning">{{ __('Revenir à la liste') }}</a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-dark">{{ __('Enregistrer') }}</button>
+                                <button type="submit" class="btn btn-warning">{{ __('Enregistrer') }}</button>
                             </div>
                         </div>
                     </form>

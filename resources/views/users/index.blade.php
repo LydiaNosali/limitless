@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header card-header-primary">
+                        <div class="card-header card-header-warning">
                             <h4 class="card-title ">{{ __('Users') }}</h4>
                             <p class="card-category"> {{ __('Here you can manage users') }}</p>
                         </div>
@@ -25,7 +25,7 @@
                             @endif
                             <div class="row">
                                 <div class="col-12 text-right">
-                                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-warning">{{ __('Add user') }}</a>
                                 </div>
                             </div>
                             <div class="table-responsive">

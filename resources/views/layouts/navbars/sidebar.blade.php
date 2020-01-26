@@ -32,12 +32,14 @@
                                 <span class="sidebar-normal">{{ __('Profile') }} </span>
                             </a>
                         </li>
+
                         <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ route('user.index') }}">
                                 <span class="sidebar-mini"> GU </span>
                                 <span class="sidebar-normal"> {{ __('Gestion des utilisateurs') }} </span>
                             </a>
                         </li>
+
                     </ul>
                 </div>
             </li>
