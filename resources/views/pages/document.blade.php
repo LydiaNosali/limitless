@@ -17,7 +17,7 @@
                         <div class="card-body">
 
                             <div  class="row pt-10 col-md-10" >
-                                    <button   class="btn btn-xs btn-dark pull-right"
+                                    <button   class="btn btn-xs btn-warning pull-right"
                                              onclick="window.location='{{ url("document/sommaire") }}'"><i class="material-icons">view_list</i> Voir le sommaire des documents</button>
                                 </div>
 
@@ -33,7 +33,7 @@
                         </div>
                         <div class="card-body">
                             <div  class="row pt-10 col-md-10" >
-                                <button   class="btn btn-xs btn-dark pull-right"
+                                <button   class="btn btn-xs btn-warning pull-right"
                                           onclick="window.location='{{ url("document/create") }}'"><i class="material-icons">folder_open</i> Ajouter un document</button>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="card-body">
                             <div  class="row pt-10 col-md-10" >
-                                <button   class="btn btn-xs btn-dark pull-right"
+                                <button   class="btn btn-xs btn-warning pull-right"
                                           onclick="window.location='{{ url("document/modifier") }}'"><i class="material-icons">mouse</i> Modifier un document</button>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="card-body">
                             <div  class="row pt-10 col-md-10" >
-                                <button   class="btn btn-xs btn-dark pull-center"
+                                <button   class="btn btn-xs btn-warning pull-center"
                                           onclick="window.location='{{ url("document/annuler") }}'"><i class="material-icons">delete_outline</i> Annuler un document</button>
                             </div>
                         </div>

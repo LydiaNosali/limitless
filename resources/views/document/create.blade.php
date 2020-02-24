@@ -16,16 +16,52 @@
                             <h4 class="card-title ">Ajouter un nouveau document</h4>
                         </div>
                         <div class="card-body">
-                            <div class="col-md-12 text-right">
-                                <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
+                            <div class="col-md-12 text-right" style="padding:5px;">
+                                <a href="{{ route('document') }}" class="btn btn-sm btn-warning">{{ __('Revenir en arriére') }}</a>
                             </div>
 
                             <form action="/document/create" enctype="multipart/form-data" method="post">
                                 @csrf
                                 <div class="row">
 
+                                    <label for="client" class="col-md-3 col-form-label ">Nom du client</label>
+                                    <div class="col-sm-7" style="padding: 5px;">
+                                        <div class="input-group" >
+
+                                            <input id="client" name="client" type="text" class="form-control" placeholder="Client"/>
+
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                $( "#client" ).autocomplete({
+
+                                                    source: function(request, response) {
+                                                        $.ajax({
+                                                            url: "{{url('autocompletededed')}}",
+                                                            data: {
+                                                                term : request.term
+                                                            },
+                                                            dataType: "json",
+                                                            success: function(data){
+                                                                var resp = $.map(data,function(obj){
+
+                                                                    return obj.name;
+
+                                                                });
+                                                                response(resp)
+                                                                ;}});},
+                                                    minLength: 1
+                                                });});
+
+
+                                        </script>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+
                                     <label for="repertoire" class="col-md-3 col-form-label ">Nom du repertoire</label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7" style="padding: 5px;">
                                         <div class="input-group">
 
                                             <input id="repertoire" name="repertoire" type="text" class="form-control" placeholder="Repertoire"/>
@@ -53,7 +89,6 @@
                                                         minLength: 1
                                                     });});
 
-
                                             </script>
 
                                     </div>
@@ -61,7 +96,7 @@
                                 <div class="row">
 
                                     <label for="document" class="col-md-3 col-form-label ">Nom du Document</label>
-                                    <div class="col-sm-7">
+                                    <div class="col-sm-7" style="padding: 5px;">
                                         <div class="input-group">
 
                                             <input id="document" name="document" type="text" class="form-control" placeholder="Document"/>
@@ -95,24 +130,24 @@
                                     </div>
                                 </div>
                                 <div class type="row">
-                                    <label for="document" class="col-md-3 col-form-label ">Document annule</label>
-                                    <div class="col-sm-7">
+                                    <label for="document" class="col-md-3 col-form-label ">Comptabilisé</label>
+                                    <div class="col-sm-7" style="padding: 5px;">
 
                                         <div>
-                                            <input type="radio" checked=false name="annule"> Oui
-                                            <input type="radio" name="annule"> Non
+                                            <input type="radio" checked=false name="compta"> Oui
+                                            <input type="radio" name="compta"> Non
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <label for="file" class="col-md-3 col-form-label ">Ajouter un document</label>
-                                    <div class="col-sm-7">
-                                        <input type="file", class="form-control-file" id="file" name="file">
+                                    <div class="col-sm-7" style="padding: 5px;">
+                                        <input type="file" class="form-control-file" id="file" name="file">
                                     </div>
 
                                 </div>
                                 <div class="row pt-4">
-                                    <button  type="submit" class="btn btn-dark">Ajouter nouveau document</button>
+                                    <button  type="submit" class="btn btn-warning">Ajouter nouveau document</button>
 
                                 </div>
 
@@ -133,7 +168,7 @@
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
+                                <a href="{{ route('document') }}" class="btn btn-sm btn-warning">{{ __('Revenir en arriére') }}</a>
                             </div>
 
                             <div class="col-8">

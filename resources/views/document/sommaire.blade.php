@@ -16,7 +16,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 text-right">
-                                    <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
+                                    <a href="{{ route('document') }}" class="btn btn-sm btn-warning">{{ __('Revenir en arriére') }}</a>
                                 </div>
                             </div>
                             <?php

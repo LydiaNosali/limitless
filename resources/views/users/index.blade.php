@@ -32,21 +32,27 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
-                                        {{ __('Name') }}
+                                        {{ __('Role') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Nom et Prénom') }}
                                     </th>
                                     <th>
                                         {{ __('Email') }}
                                     </th>
                                     <th>
-                                        {{ __('Creation date') }}
+                                        {{ __('Date de création') }}
                                     </th>
                                     <th class="text-right">
                                         {{ __('Actions') }}
                                     </th>
                                     </thead>
                                     <tbody>
-                                    @foreach($users as $user)
+                                    @foreach($users as $user )
                                         <tr>
+                                            <td>
+                                                {{ $user->role }}
+                                            </td>
                                             <td>
                                                 {{ $user->name }}
                                             </td>

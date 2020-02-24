@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -19,8 +21,24 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function adminIndex()
     {
-        return view('dashboard');
+        if (!Auth::user()->role == 'admin')
+        {
+            return redirect('/permission-denied');
+        };
+        return view('admin');
+    }
+    public function clientIndex()
+    {
+        return view('client');
+    }
+    public function comptableIndex()
+    {
+        return view('comptable');
+    }
+    public function permissionDenied()
+    {
+        return view('nopermission');
     }
 }

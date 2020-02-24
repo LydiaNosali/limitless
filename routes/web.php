@@ -6,9 +6,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@adminIndex')->name('home')->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/admin', 'HomeController@adminIndex')->name('admin')->middleware('admin');
+    Route::get('/client', 'HomeController@clientIndex')->name('client')->middleware('client');
+    Route::get('/comptable', 'HomeController@comptableIndex')->name('comptable')->middleware('comptable');
+    Route::get('/permission-denied', 'HomeController@permissionDenied')->name('nopermission');
+
+    Route::resource('user', 'UserController', ['except' => ['show']]);
+    Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
+    Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
+    Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+});
+
+Route::group(['middleware' => ['auth', 'admin']], function () {
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
@@ -85,23 +97,24 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.map');
 	})->name('map');
 
+});
+
+Route::group(['middleware' => ['auth','client']], function () {
 
 });
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
+Route::group(['middleware' => ['auth','comptable']], function () {
+
+    Route::get('document/create', 'RepertoireController@index');
+    Route::post('document/create', 'DocumentController@store');
+    Route::get('document/create', 'DocumentController@index');
+    Route::post('document/annuler', 'DocumentController@update');
+    Route::get('autocomplete', 'RepertoireController@search');
+    Route::get('autocompleted', 'DocumentController@search');
+    Route::get('autocompleteded', 'UserController@search');
+    Route::get('autocompletededed', 'UserController@searchcompta');
+    Route::post('repertoire/create', 'RepertoireController@store');
+    Route::post('repertoire/supprimer', 'RepertoireController@update');
+
 });
 
-Route::get('document/create', 'RepertoireController@index');
-Route::post('document/create', 'DocumentController@store');
-Route::get('document/create', 'DocumentController@index');
-Route::post('document/annuler', 'DocumentController@update');
-Route::get('autocomplete', 'RepertoireController@search');
-Route::get('autocompleted', 'DocumentController@search');
-
-
-Route::post('repertoire/create', 'RepertoireController@store');
-Route::post('repertoire/supprimer', 'RepertoireController@update');

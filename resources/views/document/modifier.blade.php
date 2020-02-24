@@ -17,7 +17,7 @@
                         </div>
                         <div class="card-body">
                             <div class="col-md-12 text-right">
-                                <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
+                                <a href="{{ route('document') }}" class="btn btn-sm btn-warning">{{ __('Revenir en arriére') }}</a>
                             </div>
 
                             <form action="/document/modifier" enctype="multipart/form-data" method="post">
@@ -147,7 +147,7 @@
 
                                 </div>
                                 <div class="row pt-4">
-                                    <button  type="submit" class="btn btn-dark">Remplacer document</button>
+                                    <button  type="submit" class="btn btn-warning">Remplacer document</button>
 
                                 </div>
 

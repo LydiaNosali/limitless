@@ -1,4 +1,4 @@
-@extends('Downloads.material-dashboard-laravel-master.material-dashboard-laravel-master.src.material-stubs.resources.views.layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('AL SALAM BANK')])
+@extends('Downloads.material-dashboard-laravel-master.material-dashboard-laravel-master.src.material-stubs.resources.views.layouts.app', ['class' => 'off-canvas-sidebar', 'activePage' => 'home', 'title' => __('Limitless')])
 
 @section('content')
 <div class="container" style="height: auto;">

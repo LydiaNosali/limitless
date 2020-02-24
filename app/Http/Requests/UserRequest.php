@@ -26,6 +26,12 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
+            'compta_id'=>[
+                'required',
+                ],
+            'role' => [
+                'required',
+                ],
             'name' => [
                 'required', 'min:3'
             ],

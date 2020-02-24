@@ -3,120 +3,85 @@
 @section('content')
     <div class="content">
         <div class="container-fluid">
-            <div class="card">
-                <div class="card-header card-header-primary">
-                    <h3 class="card-title">Notifications</h3>
-                    <!--<p class="card-category">Handcrafted by our friend
-                        <a target="_blank" href="https://github.com/mouse0270">Robert McIntosh</a>. Please checkout the
-                        <a href="http://bootstrap-notify.remabledesigns.com/" target="_blank">full documentation.</a>
-                      </p>-->
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4 class="card-title">Styles de Notifications</h4>
-                            <div class="alert alert-info">
-                                <span>Une nouvelle procédure a été diffusée.</span>
-                            </div>
-                            <div class="alert alert-info">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span>Une procédure a été annulée.</span>
-                            </div>
-                            <div class="alert alert-info alert-with-icon" data-notify="container">
-                                <i class="material-icons" data-notify="icon">add_alert</i>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span data-notify="message">Cette procédure a été modifiée.</span>
-                            </div>
-                            <div class="alert alert-info alert-with-icon" data-notify="container">
-                                <i class="material-icons" data-notify="icon">add_alert</i>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span data-notify="message">La procédure a été revue.</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <h4 class="card-title">Etats des Notifications</h4>
-                            <div class="alert alert-info">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span>
-                <b> Info - </b> Juste une information </span>
-                            </div>
-                            <div class="alert alert-success">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span>
-                <b> Success - </b> Vous tenez là, la dernière version de la procédure.</span>
-                            </div>
-                            <div class="alert alert-warning">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span>
-                <b> Warning - </b> Attention</span>
-                            </div>
-                            <div class="alert alert-danger">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span>
-                <b> Danger - </b> La procédure que vous avez consulté a été annulée</span>
-                            </div>
-                            <div class="alert alert-primary">
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="material-icons">close</i>
-                                </button>
-                                <span>
-                <b> Primary - </b>Notification</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row">
                 <div class="col-md-12">
-                    <div class="places-buttons">
-                        <div class="row">
-                            <div class="col-md-6 ml-auto mr-auto text-center">
-                                <h4 class="card-title">
-                                    Les emplacements des Notifications
-                                    <p class="category">Cliquez pour voir les notifications</p>
-                                </h4>
-                            </div>
+                    <div class="card">
+                        <div class="card-header card-header-warning">
+                            <h4 class="card-title ">{{ __('Users') }}</h4>
+                            <p class="card-category"> {{ __('Here you can manage users') }}</p>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-8 col-md-10 ml-auto mr-auto">
+                        <div class="card-body">
+                            @if (session('status'))
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <button class="btn btn-primary btn-block" onclick="md.showNotification('top','left')">Top Left</button>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button class="btn btn-primary btn-block" onclick="md.showNotification('top','center')">Top Center</button>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button class="btn btn-primary btn-block" onclick="md.showNotification('top','right')">Top Right</button>
+                                    <div class="col-sm-12">
+                                        <div class="alert alert-success">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                            <span>{{ session('status') }}</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-8 col-md-10 ml-auto mr-auto">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <button class="btn btn-primary btn-block" onclick="md.showNotification('bottom','left')">Bottom Left</button>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button class="btn btn-primary btn-block" onclick="md.showNotification('bottom','center')">Bottom Center</button>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button class="btn btn-primary btn-block" onclick="md.showNotification('bottom','right')">Bottom Right</button>
-                                    </div>
-                                </div>
+                            @endif
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class=" text-primary">
+                                    <th>
+                                        {{ __('Nom et Prénom') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Email') }}
+                                    </th>
+                                    <th>
+                                        {{ __('Date de création') }}
+                                    </th>
+                                    <th class="text-right">
+                                        {{ __('Actions') }}
+                                    </th>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    use App\User;$users=User::all();
+                                    ?>
+                                    @foreach($users as $user )
+                                        @if($user->role == 'client')
+                                        <tr>
+                                            <td>
+                                                {{ $user->name }}
+                                            </td>
+                                            <td>
+                                                {{ $user->email }}
+                                            </td>
+                                            <td>
+                                                {{ $user->created_at->format('Y-m-d') }}
+                                            </td>
+                                            <td class="td-actions text-right">
+                                                @if ($user->id != auth()->id())
+                                                    <form action="{{ route('user.destroy', $user) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+
+                                                        <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.edit', $user) }}" data-original-title="" title="">
+                                                            <i class="material-icons">edit</i>
+                                                            <div class="ripple-container"></div>
+                                                        </a>
+                                                        <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
+                                                            <i class="material-icons">close</i>
+                                                            <div class="ripple-container"></div>
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('profile.edit') }}" data-original-title="" title="">
+                                                        <i class="material-icons">edit</i>
+                                                        <div class="ripple-container"></div>
+                                                    </a>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

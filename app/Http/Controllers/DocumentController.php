@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use App\Repertoire;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,6 +20,7 @@ class DocumentController extends Controller
     public function store(){
         $repertoire='';
         $id=0;
+        $idd=0;
         $data=request()->validate([
             'file'=>['required','file'],
         ]);
@@ -30,16 +32,22 @@ class DocumentController extends Controller
                 $id= $repe->id;
                 $repertoire=$repe->repertoire;
         }
+        $r = request('client');
+        $resultt=User::where('name', '=',$r)
+            ->get();
 
+        foreach ($resultt as $r) {
+            $idd= $r->id;
+        }
       request('file')->store('uploads','public');
         $document = new Document();
 
         $document->document = request('document');
-
+        $document->client_id = $idd;
         $document->repertoire_id = $id;
-        $document->annule = 1;
-        if (request('annule')=='false')
-        $document->annule = 0;
+        $document->compta = 1;
+        if (request('compta')=='false')
+        $document->compta = 0;
         $document->date_ajout = date('Y-m-d H:i:s');
 
         $document->save();

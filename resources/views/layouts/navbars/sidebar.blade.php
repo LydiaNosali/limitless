@@ -17,7 +17,7 @@
                     <p>{{ __('Dashboard') }}</p>
                 </a>
             </li>
-            <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+            <li class="nav-item {{ ($activePage ?? '' ?? '' == 'profile' || $activePage ?? '' ?? '' == 'user-management') ? ' active' : '' }}">
                 <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
                     <i><img style="width:25px" src="{{ asset('material') }}/img/logo.png"></i>
                     <p>{{ __('Gestion des utilisateurs') }}
@@ -26,35 +26,46 @@
                 </a>
                 <div class="collapse show" id="laravelExample">
                     <ul class="nav">
-                        <li class="nav-item{{ $activePage == 'profile' ? ' active' : '' }}">
+                        <li class="nav-item{{ $activePage ?? '' ?? '' == 'profile' ? ' active' : '' }}">
                             <a class="nav-link" href="{{ route('profile.edit') }}">
                                 <span class="sidebar-mini"> P </span>
                                 <span class="sidebar-normal">{{ __('Profile') }} </span>
                             </a>
                         </li>
-
-                        <li class="nav-item{{ $activePage == 'user-management' ? ' active' : '' }}">
-                            <a class="nav-link" href="{{ route('user.index') }}">
-                                <span class="sidebar-mini"> GU </span>
-                                <span class="sidebar-normal"> {{ __('Gestion des utilisateurs') }} </span>
-                            </a>
-                        </li>
-
+                        @if(Auth::user()->role == 'admin')
+                            <li class="nav-item{{ $activePage ?? '' ?? '' == 'user-management' ? ' active' : '' }}">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    <span class="sidebar-mini"> GU </span>
+                                    <span class="sidebar-normal"> {{ __('Gestion des utilisateurs') }} </span>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </li>
-            <li class="nav-item{{ $activePage == 'table' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('table') }}">
-                    <i class="material-icons">content_paste</i>
-                    <p>{{ __('Liste des comptables') }}</p>
-                </a>
-            </li>
-            <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
-                <a class="nav-link" href="{{ route('notifications') }}">
-                    <i class="material-icons">library_books</i>
-                    <p>{{ __('Liste des clients') }}</p>
-                </a>
-            </li>
+            @if(Auth::user()->role == 'admin')
+                <li class="nav-item{{ $activePage ?? '' ?? '' == 'table' ? ' active' : '' }}">
+                    <a class="nav-link" href="{{ route('table') }}">
+                        <i class="material-icons">content_paste</i>
+                        <p>{{ __('Liste des comptables') }}</p>
+                    </a>
+                </li>
+
+                <li class="nav-item{{ $activePage ?? '' ?? '' == 'notifications' ? ' active' : '' }}">
+                    <a class="nav-link" href="{{ route('notifications') }}">
+                        <i class="material-icons">library_books</i>
+                        <p>{{ __('Liste des clients') }}</p>
+                    </a>
+                </li>
+            @endif
+            @if(Auth::user()->role == 'comptable')
+                <li class="nav-item{{ $activePage ?? '' ?? '' == 'document' ? ' active' : '' }}">
+                    <a class="nav-link" href="{{ route('document') }}">
+                        <i class="material-icons">library_books</i>
+                        <p>{{ __('Documents') }}</p>
+                    </a>
+                </li>
+            @endif
 
         </ul>
     </div>

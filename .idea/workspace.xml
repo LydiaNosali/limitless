@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d01f093b-929c-441e-aba2-ac310fb194c1" name="Default Changelist" comment="" />
+    <list default="true" id="d01f093b-929c-441e-aba2-ac310fb194c1" name="Default Changelist" comment="Users">
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckComptable.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_03_001903_add_id_compta_to_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/client.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/nopermission.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckRole.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Rules/CurrentPasswordCheckRule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Rules/CurrentPasswordCheckRule.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_30_220711_create_notification_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_01_130632_create_repertoires_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_02_223619_add_compta_to_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_01_132457_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_02_144026_add_role_to_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/annuler.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/annuler.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/modifier.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/modifier.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/sommaire.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/sommaire.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/document.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/document.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notifications.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/table_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/table_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,21 +173,21 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/layouts/navbars" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\salam\resources\views" />
+      <recent name="C:\Users\Dell\salam\resources" />
       <recent name="C:\Users\Dell\salam\resources\views\layouts\navbars" />
       <recent name="C:\Users\Dell\salam\public\material\img" />
       <recent name="C:\Users\Dell\salam\resources\lang\ar" />
-      <recent name="C:\Users\Dell\salam\resources\lang\fr" />
-      <recent name="C:\Users\Dell\salam\resources\lang\en" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Dell\salam\public\material\img" />
       <recent name="C:\Users\Dell\salam\resources\views" />
+      <recent name="C:\Users\Dell\salam\public\material\img" />
       <recent name="C:\Users\Dell\salam\storage\app\public\uploads" />
       <recent name="C:\Users\Dell\salam\resources\views\document" />
       <recent name="C:\Users\Dell\salam\storage\app\public\Textes organiques Annulés" />
@@ -217,7 +253,15 @@
       <workItem from="1579618341615" duration="5991000" />
       <workItem from="1579776153006" duration="274000" />
       <workItem from="1580081438144" duration="361000" />
-      <workItem from="1580082209200" duration="605000" />
+      <workItem from="1580082209200" duration="950000" />
+      <workItem from="1580113228536" duration="2819000" />
+      <workItem from="1580156340922" duration="9621000" />
+      <workItem from="1580503256820" duration="8483000" />
+      <workItem from="1580653777268" duration="5157000" />
+      <workItem from="1580662064020" duration="562000" />
+      <workItem from="1580681544145" duration="10730000" />
+      <workItem from="1581686935811" duration="9000" />
+      <workItem from="1582539901591" duration="2114000" />
     </task>
     <task id="LOCAL-00001" summary="Users">
       <created>1580082641821</created>

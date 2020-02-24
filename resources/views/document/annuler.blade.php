@@ -11,13 +11,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header " data-color="black">
+                        <div class="card-header " data-color="orange">
                             <h4 class="card-title ">Annuler un document</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12 text-right">
-                                    <a href="{{ route('document') }}" class="btn btn-sm btn-dark">{{ __('Revenir en arriére') }}</a>
+                                    <a href="{{ route('document') }}" class="btn btn-sm btn-warning">{{ __('Revenir en arriére') }}</a>
                                 </div>
                             </div>
                             <div class="col-8">
@@ -99,7 +99,7 @@
                         </form>
 
                             <div class="row pt-4">
-                                <button  type="submit" class="btn btn-dark">Annuler document</button>
+                                <button  type="submit" class="btn btn-warning">Annuler document</button>
 
                             </div>
 

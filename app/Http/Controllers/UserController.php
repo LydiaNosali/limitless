@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Http\Requests\UserRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -40,7 +40,7 @@ class UserController extends Controller
     {
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
 
-        return redirect()->route('user.index')->withStatus(__('User successfully created.'));
+        return redirect()->route('user.index')->withStatus(__('L\'utilisateur a été créé avec succès.'));
     }
 
     /**
@@ -69,7 +69,7 @@ class UserController extends Controller
                 ->except([$hasPassword ? '' : 'password']
         ));
 
-        return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
+        return redirect()->route('user.index')->withStatus(__('Utilisateur mis à jour avec succès.'));
     }
 
     /**
@@ -82,6 +82,26 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('user.index')->withStatus(__('User successfully deleted.'));
+        return redirect()->route('user.index')->withStatus(__('L\'utilisateur a bien été supprimé.'));
+    }
+    public function search(Request $request)
+    {
+        $search = $request->get('term');
+
+        $result = User::where([['role', '=' ,'client' ],
+                              [ 'name', 'LIKE', '%'. $search. '%']])->get();
+
+        return response()->json($result);
+
+    }
+    public function searchcompta(Request $request)
+    {
+        $search = $request->get('term');
+
+        $result = User::where([['role', '=' ,'comptable' ],
+            [ 'name', 'LIKE', '%'. $search. '%']])->get();
+
+        return response()->json($result);
+
     }
 }
