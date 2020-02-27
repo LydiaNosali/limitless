@@ -65,6 +65,12 @@
                         <p>{{ __('Documents') }}</p>
                     </a>
                 </li>
+                <li class="nav-item{{ $activePage ?? '' ?? '' == 'salaire' ? ' active' : '' }}">
+                    <a class="nav-link" href="{{ route('salaire') }}">
+                        <i class="material-icons">library_books</i>
+                        <p>{{ __('Salariées') }}</p>
+                    </a>
+                </li>
             @endif
 
         </ul>

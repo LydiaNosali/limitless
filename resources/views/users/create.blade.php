@@ -1,6 +1,18 @@
 @extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('Gestion des utilisateurs')])
 
 @section('content')
+    <script type="text/javascript">
+        function showHide(value){
+            if (value==="client") {
+                document.getElementById('client').style.display = 'inline';
+                document.getElementById('date').style.display = 'inline';
+            }
+            else {
+                document.getElementById('client').style.display = 'none';
+                document.getElementById('date').style.display = 'none';
+            }
+        }
+    </script>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -24,8 +36,8 @@
                                     <label class="col-sm-3 col-form-label">{{ __('Role') }}</label>
                                     <div class="col-sm-7">
                                         <div >
-                                            <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                            <select class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" id="input-role" required="true" aria-required="true">
+                                            <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
+                                            <select class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" id="input-role" required="true" aria-required="true" onchange="showHide(this.value);">
                                                 <option value="admin">Admin</option>
                                                 <option value="client">Client</option>
                                                 <option value="comptable">Comptable</option>
@@ -34,46 +46,50 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" id="client">
-
-                                    <label for="comptable" class="col-sm-3 col-form-label ">Nom du comptable</label>
+                                <div class="row" style="display: none;" id="client">
+                                    <label for="compta_id" class="col-sm-3 col-form-label ">Nom du comptable</label>
                                     <div class="col-sm-7">
-                                        <div class="form-group{{ $errors->has('comptable') ? ' has-danger' : '' }}">
-                                        <div class="input-group" >
-                                            <input id="comptable" name="comptable" type="text" class="form-control" placeholder="Comptable"/>
+                                        <div class="form-group{{ $errors->has('compta_id') ? ' has-danger' : '' }}">
+                                            <div class="input-group" >
+                                                <input id="compta_id" name="compta_id" type="text" class="form-control" placeholder="Comptable" />
+                                            </div>
+                                            <script type="text/javascript">
+                                                $(document).ready(function() {
+                                                    $( "#compta_id" ).autocomplete({
+
+                                                        source: function(request, response) {
+                                                            $.ajax({
+                                                                url: "{{url('autocompletededed')}}",
+                                                                data: {
+                                                                    term : request.term
+                                                                },
+                                                                dataType: "json",
+                                                                success: function(data){
+                                                                    var resp = $.map(data,function(obj){
+                                                                        return obj.name;
+                                                                    });
+                                                                    response(resp)
+                                                                    ;}});},
+                                                        minLength: 1
+                                                    });});
+
+
+                                            </script>
+
                                         </div>
-                                            <?php
-                                            use App\User;$resultat=User::where('name', '=', $_POST["comptable"])->get();
-                                             foreach ($resultat as $repe) {
-                                                 $pere=$repe->id;
-                                                 $niveau=$repe->niveau;
-                                             }?>
-                                        <script type="text/javascript">
-                                            $(document).ready(function() {
-                                                $( "#comptable" ).autocomplete({
+                                        </div>
 
-                                                    source: function(request, response) {
-                                                        $.ajax({
-                                                            url: "{{url('autocompletededed')}}",
-                                                            data: {
-                                                                term : request.term
-                                                            },
-                                                            dataType: "json",
-                                                            success: function(data){
-                                                                var resp = $.map(data,function(obj){
-
-                                                                    return obj.name;
-
-                                                                });
-                                                                response(resp)
-                                                                ;}});},
-                                                    minLength: 1
-                                                });});
-
-
-                                        </script>
-
-                                    </div>
+                                </div>
+                                <div class="row" style="display: none;" id="date">
+                                    <label class="col-sm-3 col-form-label">{{ __('Date de fin d\'abonnement') }}</label>
+                                    <div class="col-sm-7">
+                                        <div class="form-group{{ $errors->has('date') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" type="date" id="start" name="date"
+                                                    placeholder="{{ __('Date de fin d\'abonnement') }}"  />
+                                            @if ($errors->has('date'))
+                                                <span id="date-error" class="error text-danger" for="input-date">{{ $errors->first('date') }}</span>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">

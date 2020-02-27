@@ -45,9 +45,10 @@ class DocumentController extends Controller
         $document->document = request('document');
         $document->client_id = $idd;
         $document->repertoire_id = $id;
-        $document->compta = 1;
         if (request('compta')=='false')
-        $document->compta = 0;
+            $document->compta = 'oui';
+        else
+            $document->compta = 'non';
         $document->date_ajout = date('Y-m-d H:i:s');
 
         $document->save();

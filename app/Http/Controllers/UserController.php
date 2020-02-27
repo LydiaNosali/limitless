@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -38,8 +39,15 @@ class UserController extends Controller
      */
     public function store(UserRequest $request, User $model)
     {
+        $id=0;
+        $r=$request->input('compta_id');
+        $resultat=User::where([['name', '=',$r],['role','=','comptable']])
+            ->get();
+        foreach ($resultat as $repe) {
+            $id= $repe->id;
+            $request['compta_id']=$id;
+        }
         $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
-
         return redirect()->route('user.index')->withStatus(__('L\'utilisateur a été créé avec succès.'));
     }
 

@@ -15,35 +15,6 @@
     <span class="navbar-toggler-icon icon-bar"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end">
-      <form class="navbar-form">
-          <div class="row">
-        <input type="text" value="" class="form-control" placeholder="Recherche...">
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $( "#document" ).autocomplete({
-
-                        source: function(request, response) {
-                            $.ajax({
-                                url: "{{url('autocompleted')}}",
-                                data: {
-                                    term : request.term
-                                },
-                                dataType: "json",
-                                success: function(data){
-                                    var resp = $.map(data,function(obj){
-
-                                        return obj.document;
-
-                                    });
-                                    response(resp)
-                                    ;}});},
-                        minLength: 1
-                    });});
-
-
-            </script>
-        </div>
-      </form>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="{{ route('home') }}">

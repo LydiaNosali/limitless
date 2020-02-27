@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 		return view('pages.table_list');
 	})->name('table');
 
+
     Route::get('notifications', function () {
         return view('pages.notifications');
     })->name('notifications');
@@ -115,6 +116,7 @@ Route::group(['middleware' => ['auth','comptable']], function () {
     Route::get('autocompletededed', 'UserController@searchcompta');
     Route::post('repertoire/create', 'RepertoireController@store');
     Route::post('repertoire/supprimer', 'RepertoireController@update');
+    Route::resource('salaire', 'SalaireController', ['except' => ['show']]);
 
 });
 

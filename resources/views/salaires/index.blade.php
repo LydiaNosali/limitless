@@ -1,4 +1,4 @@
-@extends('layouts.app', ['activePage' => 'notifications', 'titlePage' => __('Notifications')])
+@extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('User Management')])
 
 @section('content')
     <div class="content">
@@ -23,9 +23,17 @@
                                     </div>
                                 </div>
                             @endif
+                            <div class="row">
+                                <div class="col-12 text-right">
+                                    <a href="{{ route('user.create') }}" class="btn btn-sm btn-warning">{{ __('Add user') }}</a>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table">
                                     <thead class=" text-primary">
+                                    <th>
+                                        {{ __('Role') }}
+                                    </th>
                                     <th>
                                         {{ __('Nom et Prénom') }}
                                     </th>
@@ -33,19 +41,18 @@
                                         {{ __('Email') }}
                                     </th>
                                     <th>
-                                        {{ __('Date de fin d\'abonnement') }}
+                                        {{ __('Date de création') }}
                                     </th>
                                     <th class="text-right">
                                         {{ __('Actions') }}
                                     </th>
                                     </thead>
                                     <tbody>
-                                    <?php
-                                    use App\User;$users=User::all();
-                                    ?>
                                     @foreach($users as $user )
-                                        @if($user->role == 'client')
                                         <tr>
+                                            <td>
+                                                {{ $user->role }}
+                                            </td>
                                             <td>
                                                 {{ $user->name }}
                                             </td>
@@ -53,7 +60,7 @@
                                                 {{ $user->email }}
                                             </td>
                                             <td>
-                                                {{ $user->date }}
+                                                {{ $user->created_at->format('Y-m-d') }}
                                             </td>
                                             <td class="td-actions text-right">
                                                 @if ($user->id != auth()->id())
@@ -78,7 +85,6 @@
                                                 @endif
                                             </td>
                                         </tr>
-                                        @endif
                                     @endforeach
                                     </tbody>
                                 </table>
