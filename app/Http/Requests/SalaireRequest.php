@@ -13,7 +13,7 @@ class SalaireRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -24,7 +24,9 @@ class SalaireRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nom' => [
+                'required', 'min:3'
+            ],
         ];
     }
 }

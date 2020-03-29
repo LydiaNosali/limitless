@@ -65,14 +65,21 @@
                         <p>{{ __('Documents') }}</p>
                     </a>
                 </li>
-                <li class="nav-item{{ $activePage ?? '' ?? '' == 'salaire' ? ' active' : '' }}">
-                    <a class="nav-link" href="{{ route('salaire') }}">
-                        <i class="material-icons">library_books</i>
-                        <p>{{ __('Salariées') }}</p>
+                <li class="nav-item{{ $activePage ?? '' ?? '' == 'salaire-management' ? ' active' : '' }}">
+                    <a class="nav-link" href="{{ route('salaire.index') }}">
+                        <i class="material-icons">content_paste</i>
+                        <p>{{ __('Gestion des salariées') }}</p>
                     </a>
                 </li>
             @endif
-
+            @if(Auth::user()->role == 'client')
+            <li class="nav-item{{ $activePage ?? '' ?? '' == 'document' ? ' active' : '' }}">
+                <a class="nav-link" href="{{ route('sommaireclient') }}">
+                    <i class="material-icons">library_books</i>
+                    <p>{{ __('Documents') }}</p>
+                </a>
+            </li>
+            @endif
         </ul>
     </div>
 </div>

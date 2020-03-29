@@ -2,24 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d01f093b-929c-441e-aba2-ac310fb194c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/SalaireController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/SalaireRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Salaire.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_140838_add_date_to_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2020_02_25_151847_create_salaire_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/salaire.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/salaires/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/salaires/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/salaires/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2020_03_01_170539_add_suspend_to_users_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/sample-dataset.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/sommaireclient.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/salam.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/salam.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SalaireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SalaireController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/SalaireRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/SalaireRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Salaire.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Salaire.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/document/sommaire.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/sommaire.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/navs/auth.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/navbars/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/notifications.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notifications.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/salaires/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/salaires/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/salaires/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/salaires/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/salaires/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/salaires/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
@@ -55,6 +63,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
@@ -159,24 +173,24 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/document" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\salam\resources\views\document" />
+      <recent name="C:\Users\Dell\salam\node_modules\chartjs-plugin-datasource" />
+      <recent name="C:\Users\Dell\salam\resources\views\profile" />
       <recent name="C:\Users\Dell\salam\resources\views" />
       <recent name="C:\Users\Dell\salam\resources\views\pages" />
-      <recent name="C:\Users\Dell\salam\resources\views\users" />
-      <recent name="C:\Users\Dell\salam\resources" />
-      <recent name="C:\Users\Dell\salam\resources\views\layouts\navbars" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\salam\resources\views\pages" />
+      <recent name="C:\Users\Dell\salam\public" />
       <recent name="C:\Users\Dell\salam\resources\views" />
       <recent name="C:\Users\Dell\salam\public\material\img" />
       <recent name="C:\Users\Dell\salam\storage\app\public\uploads" />
-      <recent name="C:\Users\Dell\salam\resources\views\document" />
-      <recent name="C:\Users\Dell\salam\storage\app\public\Textes organiques Annulés" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -251,6 +265,26 @@
       <workItem from="1582544524959" duration="3720000" />
       <workItem from="1582617411669" duration="23404000" />
       <workItem from="1582732810089" duration="1956000" />
+      <workItem from="1582836035126" duration="1213000" />
+      <workItem from="1583082124478" duration="2717000" />
+      <workItem from="1583095518336" duration="39000" />
+      <workItem from="1583150964075" duration="2915000" />
+      <workItem from="1583236800027" duration="10556000" />
+      <workItem from="1583530109766" duration="1661000" />
+      <workItem from="1583531972564" duration="7502000" />
+      <workItem from="1583539530206" duration="3409000" />
+      <workItem from="1583569897184" duration="8906000" />
+      <workItem from="1583579406631" duration="17000" />
+      <workItem from="1583579664279" duration="188000" />
+      <workItem from="1583580169770" duration="993000" />
+      <workItem from="1583667591088" duration="1248000" />
+      <workItem from="1583694116241" duration="2933000" />
+      <workItem from="1584125286125" duration="3000" />
+      <workItem from="1584477547700" duration="8000" />
+      <workItem from="1584625536685" duration="1189000" />
+      <workItem from="1584988825459" duration="6000" />
+      <workItem from="1585389791122" duration="3707000" />
+      <workItem from="1585473458299" duration="22078000" />
     </task>
     <task id="LOCAL-00001" summary="Users">
       <created>1580082641821</created>
@@ -266,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582542788957</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Users">
+      <created>1582836239036</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582836239036</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

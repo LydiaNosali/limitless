@@ -26,17 +26,17 @@
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">{{ __('Nom et Prénom') }}</label>
                                     <div class="col-sm-7">
-                                        <div class="form-group{{ $errors->has('name') ? ' has-danger' : '' }}">
-                                            <input class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" id="input-name" type="text" placeholder="{{ __('Nom et Prénom') }}" value="{{ old('name') }}" required="true" aria-required="true"/>
-                                            @if ($errors->has('name'))
-                                                <span id="name-error" class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
+                                        <div class="form-group{{ $errors->has('nom') ? ' has-danger' : '' }}">
+                                            <input class="form-control{{ $errors->has('nom') ? ' is-invalid' : '' }}" name="nom" id="input-nom" type="text" placeholder="{{ __('Nom et Prénom') }}" value="{{ old('nom') }}" required="true" aria-required="true"/>
+                                            @if ($errors->has('nom'))
+                                                <span id="name-error" class="error text-danger" for="input-nom">{{ $errors->first('nom') }}</span>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn btn-warning">{{ __('Ajouter utilisateur') }}</button>
+                                <button type="submit" class="btn btn-warning">{{ __('Ajouter salarié') }}</button>
                             </div>
                         </div>
                     </form>

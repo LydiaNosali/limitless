@@ -20,7 +20,7 @@ class SalaireController extends Controller
 
     public function store(SalaireRequest $request, Salaire $model)
     {
-        $model->create($request);
+        $model->create($request->all());
         return redirect()->route('salaire.index')->withStatus(__('L\'utilisateur a été créé avec succès.'));
     }
 
@@ -32,15 +32,14 @@ class SalaireController extends Controller
 
     public function update(SalaireRequest $request, Salaire  $salaire)
     {
-
-        $salaire->update($request);
+        $salaire->update($request->all());
 
         return redirect()->route('salaire.index')->withStatus(__('Salariée mis à jour avec succès.'));
     }
 
     public function destroy(Salaire  $salaire)
     {
-        $salaire->delete($salaire);
+        $salaire->delete();
 
         return redirect()->route('salaire.index')->withStatus(__('Le salariée a bien été supprimé.'));
     }

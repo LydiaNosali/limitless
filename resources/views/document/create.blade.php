@@ -20,7 +20,7 @@
                                 <a href="{{ route('document') }}" class="btn btn-sm btn-warning">{{ __('Revenir en arriére') }}</a>
                             </div>
 
-                            <form action="/document/create" enctype="multipart/form-data" method="post">
+                            <form action="/document/create" enctype="multipart/form-data" files="true" method="post">
                                 @csrf
                                 <div class="row">
 
@@ -37,7 +37,7 @@
 
                                                     source: function(request, response) {
                                                         $.ajax({
-                                                            url: "{{url('autocompletededed')}}",
+                                                            url: "{{url('autocompleteded')}}",
                                                             data: {
                                                                 term : request.term
                                                             },

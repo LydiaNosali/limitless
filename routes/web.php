@@ -5,10 +5,11 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+Route::group(['middleware'=>'client'], function() {
+    Route::get('/home', 'HomeController@adminIndex')->name('home')->middleware('auth');
+});
 
-Route::get('/home', 'HomeController@adminIndex')->name('home')->middleware('auth');
-
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'client'], function () {
     Route::get('/admin', 'HomeController@adminIndex')->name('admin')->middleware('admin');
     Route::get('/client', 'HomeController@clientIndex')->name('client')->middleware('client');
     Route::get('/comptable', 'HomeController@comptableIndex')->name('comptable')->middleware('comptable');
@@ -21,18 +22,88 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::get('user/suspend', 'UserController@suspend');
+    Route::post('user/suspend', 'UserController@suspend');
+
+    Route::get('user/desuspend', 'UserController@desuspend');
+    Route::post('user/desuspend', 'UserController@desuspend');
+
 	Route::get('table-list', function () {
 		return view('pages.table_list');
 	})->name('table');
-
 
     Route::get('notifications', function () {
         return view('pages.notifications');
     })->name('notifications');
 
-	Route::post('document/create', function () {
-		return view('document.create');
-	})->name('document/create');
+    Route::post('/repertoire/supprimer', function () {
+        return view('repertoire.supprimer');
+    })->name('repertoire/supprimer');
+
+    Route::get('/repertoire/supprimer', function () {
+        return view('repertoire.supprimer');
+    })->name('repertoire/supprimer');
+
+    Route::get('/repertoire/create', function () {
+        return view('repertoire.create');
+    })->name('repertoire/create');
+
+    Route::post('/repertoire/create', function () {
+        return view('repertoire.create');
+    })->name('repertoire/create');
+
+    Route::get('/repertoire/sommaire', function () {
+        return view('repertoire.sommaire');
+    })->name('repertoire/sommaire');
+
+    Route::post('/repertoire/sommaire', function () {
+        return view('repertoire.sommaire');
+    })->name('repertoire/sommaire');
+
+    Route::get('repertoire', function () {
+        return view('pages.repertoire');
+    })->name('repertoire');
+
+	Route::get('map', function () {
+		return view('pages.map');
+	})->name('map');
+
+});
+
+Route::group(['middleware' => ['auth','client']], function () {
+
+    Route::get('sommaireclient', function () {
+        return view('pages.sommaireclient');
+    })->name('sommaireclient');
+
+});
+
+Route::group(['middleware' => ['auth','comptable']], function () {
+
+    Route::get('document/create', 'RepertoireController@index');
+    Route::post('document/create', 'DocumentController@store');
+    Route::get('document/create', 'DocumentController@index');
+    Route::post('document/annuler', 'DocumentController@update');
+    Route::get('autocomplete', 'RepertoireController@search');
+    Route::get('autocompleted', 'DocumentController@search');
+    Route::get('autocompleteded', 'UserController@search');
+    Route::get('autocompletededed', 'UserController@searchcompta');
+    Route::post('repertoire/create', 'RepertoireController@store');
+    Route::post('repertoire/supprimer', 'RepertoireController@update');
+    Route::resource('salaire', 'SalaireController', ['except' => ['show']]);
+
+    Route::get('document/compta', 'DocumentController@comptabiliser');
+    Route::post('document/compta', 'DocumentController@comptabiliser');
+
+    Route::get('document/decompta', 'DocumentController@decomptabiliser');
+    Route::post('document/decompta', 'DocumentController@decomptabiliser');
+
+    Route::get('document', function () {
+        return view('pages.document');
+    })->name('document');
+    Route::post('document/create', function () {
+        return view('document.create');
+    })->name('document/create');
 
     Route::get('document/create', function () {
         return view('document.create');
@@ -62,61 +133,6 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
         return view('document.sommaire');
     })->name('document/sommaire');
 
-    Route::post('/repertoire/supprimer', function () {
-        return view('repertoire.supprimer');
-    })->name('repertoire/supprimer');
-
-    Route::get('/repertoire/supprimer', function () {
-        return view('repertoire.supprimer');
-    })->name('repertoire/supprimer');
-
-    Route::get('/repertoire/create', function () {
-        return view('repertoire.create');
-    })->name('repertoire/create');
-
-    Route::post('/repertoire/create', function () {
-        return view('repertoire.create');
-    })->name('repertoire/create');
-
-    Route::get('/repertoire/sommaire', function () {
-        return view('repertoire.sommaire');
-    })->name('repertoire/sommaire');
-
-    Route::post('/repertoire/sommaire', function () {
-        return view('repertoire.sommaire');
-    })->name('repertoire/sommaire');
-
-    Route::get('document', function () {
-        return view('pages.document');
-    })->name('document');
-
-    Route::get('repertoire', function () {
-        return view('pages.repertoire');
-    })->name('repertoire');
-
-	Route::get('map', function () {
-		return view('pages.map');
-	})->name('map');
-
-});
-
-Route::group(['middleware' => ['auth','client']], function () {
-
-});
-
-Route::group(['middleware' => ['auth','comptable']], function () {
-
-    Route::get('document/create', 'RepertoireController@index');
-    Route::post('document/create', 'DocumentController@store');
-    Route::get('document/create', 'DocumentController@index');
-    Route::post('document/annuler', 'DocumentController@update');
-    Route::get('autocomplete', 'RepertoireController@search');
-    Route::get('autocompleted', 'DocumentController@search');
-    Route::get('autocompleteded', 'UserController@search');
-    Route::get('autocompletededed', 'UserController@searchcompta');
-    Route::post('repertoire/create', 'RepertoireController@store');
-    Route::post('repertoire/supprimer', 'RepertoireController@update');
-    Route::resource('salaire', 'SalaireController', ['except' => ['show']]);
 
 });
 

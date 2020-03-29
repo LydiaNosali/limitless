@@ -31,61 +31,28 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
-                                        {{ __('Nom du client') }}
-                                    </th>
-                                    <th>
                                         {{ __('Nom') }}
                                     </th>
                                     <th>
                                         {{ __('Comptabilisé') }}
                                     </th>
-                                    <th class="text-right">
-                                        {{ __('Actions') }}
-                                    </th>
                                     </thead>
                                     <tbody>
                                     <?php
                                     use App\Document;
-                                    use App\User;
-                                    $clients=User::where([['compta_id','=',auth()->id()]])
-                                        ->get();
-                                    $documents=Document::get();
-                                    foreach ($clients as $client) {
-                                     foreach($documents as $document ) {
-                                        if ($document->client_id===$client->id){ ?>
+                                    $documents=Document::get();?>
+                                     @foreach($documents as $document )
+                                        @if ($document->client_id===auth()->id())
                                         <tr>
-                                            <td>
-                                                {{ $client->name }}
-                                            </td>
                                             <td>
                                                 {{ $document->document }}
                                             </td>
                                             <td>
                                                 {{ $document->compta }}
                                             </td>
-
-                                            <td class="td-actions text-right">
-                                                <div style="float:left;">
-                                                    <form action="/document/compta" method="post">
-                                                        @csrf
-                                                        <button type="submit" name="compta" class="btn btn-success btn-link" data-original-title="" title="" value={{$document->id}} >
-                                                        <i class="material-icons">done</i>
-                                                        <div class="ripple-container"></div>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                                <div style="float:right;">
-                                                    <form action="/document/decompta" method="post">
-                                                        @csrf
-                                                        <button type="submit" name="decompta" class="btn btn-danger btn-link" data-original-title="" title="" value={{$document->id}} >
-                                                        <i class="material-icons">close</i>
-                                                        <div class="ripple-container"></div>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
                                         </tr>
-                                    <?php }}} ?>
+                                        @endif
+                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>

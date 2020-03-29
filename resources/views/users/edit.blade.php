@@ -1,18 +1,6 @@
 @extends('layouts.app', ['activePage' => 'user-management', 'titlePage' => __('Gestion des utilisateurs')])
 
 @section('content')
-    <script type="text/javascript">
-        function showHide(value){
-            if (value==="client") {
-                document.getElementById('client').style.display = 'inline';
-                document.getElementById('date').style.display = 'inline';
-            }
-            else {
-                document.getElementById('client').style.display = 'none';
-                document.getElementById('date').style.display = 'none';
-            }
-        }
-    </script>
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -35,7 +23,7 @@
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">{{ __('Role') }}</label>
                                     <div class="col-sm-7">
-                                        <div >
+                                        <div>
                                             <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
                                                 <select class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" id="input-role" required="true" aria-required="true">
                                                     <option value="admin">Admin</option>
@@ -46,7 +34,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="display: none;" id="client">
+                                @if($user->role == 'client')
+                                <div class="row"  id="client">
                                     <label for="compta_id" class="col-sm-3 col-form-label ">Nom du comptable</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('compta_id') ? ' has-danger' : '' }}">
@@ -80,18 +69,19 @@
                                     </div>
 
                                 </div>
-                                <div class="row" style="display: none;" id="date">
+                                <div class="row" id="date">
                                     <label class="col-sm-3 col-form-label">{{ __('Date de fin d\'abonnement') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group{{ $errors->has('date') ? ' has-danger' : '' }}">
                                             <input class="form-control{{ $errors->has('date') ? ' is-invalid' : '' }}" type="date" id="start" name="date"
-                                                   value="2025-01-01" placeholder="{{ __('Date de fin d\'abonnement') }}" aria-required="true" required="true" />
+                                                   value="2025-01-01" value="{{ old('name', $user->date) }}" aria-required="true" required="true" />
                                             @if ($errors->has('date'))
                                                 <span id="date-error" class="error text-danger" for="input-date">{{ $errors->first('date') }}</span>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
+                                @endif
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">{{ __('Nom et Prénom') }}</label>
                                     <div class="col-sm-7">

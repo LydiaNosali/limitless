@@ -92,6 +92,20 @@ class UserController extends Controller
 
         return redirect()->route('user.index')->withStatus(__('L\'utilisateur a bien été supprimé.'));
     }
+    public function suspend()
+    {
+        $res=request("suspend");
+        User::where('id', $res)
+            ->update(['suspend' => "oui"]);
+        return redirect()->route('notifications')->withStatus(__('L\'utilisateur a bien été suspendu.'));
+    }
+    public function desuspend()
+    {
+        $res=request("desuspend");
+        User::where('id', $res)
+            ->update(['suspend' => "non"]);
+        return redirect()->route('notifications')->withStatus(__('L\'utilisateur a bien été désuspendu.'));
+    }
     public function search(Request $request)
     {
         $search = $request->get('term');

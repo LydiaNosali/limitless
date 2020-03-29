@@ -35,13 +35,13 @@
                                 <div class="row">
                                     <label class="col-sm-3 col-form-label">{{ __('Role') }}</label>
                                     <div class="col-sm-7">
-                                        <div >
+                                        <div>
                                             <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
-                                            <select class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" id="input-role" required="true" aria-required="true" onchange="showHide(this.value);">
-                                                <option value="admin">Admin</option>
-                                                <option value="client">Client</option>
-                                                <option value="comptable">Comptable</option>
-                                            </select>
+                                                <select class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" id="input-role" required="true" aria-required="true" onchange="showHide(this.value);">
+                                                    <option value="admin">Admin</option>
+                                                    <option value="client">Client</option>
+                                                    <option value="comptable">Comptable</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>

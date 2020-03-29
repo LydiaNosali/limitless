@@ -27,6 +27,9 @@
                                 <table class="table">
                                     <thead class=" text-primary">
                                     <th>
+                                        {{ __('Status') }}
+                                    </th>
+                                    <th>
                                         {{ __('Nom et Prénom') }}
                                     </th>
                                     <th>
@@ -41,11 +44,13 @@
                                     </thead>
                                     <tbody>
                                     <?php
-                                    use App\User;$users=User::all();
-                                    ?>
+                                    use App\User;$users=User::all();?>
                                     @foreach($users as $user )
                                         @if($user->role == 'client')
                                         <tr>
+                                            <td>
+                                                {{ $user->suspend }}
+                                            </td>
                                             <td>
                                                 {{ $user->name }}
                                             </td>
@@ -56,26 +61,24 @@
                                                 {{ $user->date }}
                                             </td>
                                             <td class="td-actions text-right">
-                                                @if ($user->id != auth()->id())
-                                                    <form action="{{ route('user.destroy', $user) }}" method="post">
+                                                <div style="float:left;">
+                                                <form action="/user/suspend" method="post">
                                                         @csrf
-                                                        @method('delete')
-
-                                                        <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('user.edit', $user) }}" data-original-title="" title="">
-                                                            <i class="material-icons">edit</i>
-                                                            <div class="ripple-container"></div>
-                                                        </a>
-                                                        <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
-                                                            <i class="material-icons">close</i>
-                                                            <div class="ripple-container"></div>
-                                                        </button>
-                                                    </form>
-                                                @else
-                                                    <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('profile.edit') }}" data-original-title="" title="">
-                                                        <i class="material-icons">edit</i>
+                                                        <button type="submit" name="suspend" class="btn btn-success btn-link" data-original-title="" title="" value={{$user->id}} onclick="confirm('{{ __("Are you sure you want to suspend this user?") }}') ? this.parentElement.submit() : ''">
+                                                        <i class="material-icons">done</i>
                                                         <div class="ripple-container"></div>
-                                                    </a>
-                                                @endif
+                                                        </button>
+                                                </form>
+                                                </div>
+                                                <div style="float:right;">
+                                                <form action="/user/desuspend" method="post">
+                                                    @csrf
+                                                    <button type="submit" name="desuspend" class="btn btn-danger btn-link" data-original-title="" title="" value={{$user->id}} onclick="confirm('{{ __("Are you sure you want to desuspend this user?") }}') ? this.parentElement.submit() : ''">
+                                                    <i class="material-icons">close</i>
+                                                    <div class="ripple-container"></div>
+                                                    </button>
+                                                </form>
+                                                </div>
                                             </td>
                                         </tr>
                                         @endif

@@ -50,12 +50,24 @@ class DocumentController extends Controller
         else
             $document->compta = 'non';
         $document->date_ajout = date('Y-m-d H:i:s');
-
         $document->save();
 
         return view('document.create');
     }
-
+    public function comptabiliser()
+    {
+        $res=request("compta");
+        Document::where('id', $res)
+            ->update(['compta' => "oui"]);
+        return redirect()->route('document/sommaire')->withStatus(__('La facture a bien été comptabilisé.'));
+    }
+    public function decomptabiliser()
+    {
+        $res=request("decompta");
+        Document::where('id', $res)
+            ->update(['compta' => "non"]);
+        return redirect()->route('document/sommaire')->withStatus(__('La facture a bien été défacturisé.'));
+    }
     public function update(){
         $repertoire=0;
         $resultat=Document::where('document', '=',request('document'))->get();
@@ -90,4 +102,5 @@ class DocumentController extends Controller
         return response()->json($result);
 
     }
+
 }

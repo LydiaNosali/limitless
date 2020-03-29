@@ -7,6 +7,9 @@
       <h3>{{ __('Connectez-vous à votre compte.') }} </h3>
     </div>
     <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+        @if (session('message'))
+            <div class="alert alert-danger">{{ session('message') }}</div>
+        @endif
       <form class="form" method="POST" action="{{ route('login') }}">
         @csrf
 

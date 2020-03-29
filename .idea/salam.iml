@@ -101,5 +101,10 @@
     <orderEntry type="library" name="jquery-1.8.2" level="application" />
     <orderEntry type="library" name="materialize" level="application" />
     <orderEntry type="library" name="select2" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="bootstrap-select" level="application" />
+    <orderEntry type="library" name="Chart.bundle" level="application" />
+    <orderEntry type="library" name="Chart" level="application" />
+    <orderEntry type="library" name="xlsx.full" level="application" />
   </component>
 </module>
