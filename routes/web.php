@@ -1,27 +1,25 @@
 <?php
 
+Auth::routes();
+
+#/
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-Route::group(['middleware'=>'client'], function() {
-    Route::get('/home', 'HomeController@adminIndex')->name('home')->middleware('auth');
-});
-
-Route::group(['middleware' => 'client'], function () {
-    Route::get('/admin', 'HomeController@adminIndex')->name('admin')->middleware('admin');
-    Route::get('/client', 'HomeController@clientIndex')->name('client')->middleware('client');
-    Route::get('/comptable', 'HomeController@comptableIndex')->name('comptable')->middleware('comptable');
-    Route::get('/permission-denied', 'HomeController@permissionDenied')->name('nopermission');
-
-    Route::resource('user', 'UserController', ['except' => ['show']]);
+#Les authentifié
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+    Route::get('/permission-denied', 'HomeController@permissionDenied')->name('nopermission')->middleware('auth');
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
     Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
     Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
+#Les authentifié admin
 Route::group(['middleware' => ['auth', 'admin']], function () {
+    Route::resource('user', 'UserController', ['except' => ['show']]);
+    Route::get('/admin', 'HomeController@adminIndex');
     Route::get('user/suspend', 'UserController@suspend');
     Route::post('user/suspend', 'UserController@suspend');
 
@@ -70,16 +68,9 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
 
 });
 
-Route::group(['middleware' => ['auth','client']], function () {
-
-    Route::get('sommaireclient', function () {
-        return view('pages.sommaireclient');
-    })->name('sommaireclient');
-
-});
-
+#Les authentifié comptable
 Route::group(['middleware' => ['auth','comptable']], function () {
-
+    Route::get('/comptable', 'HomeController@comptableIndex');
     Route::get('document/create', 'RepertoireController@index');
     Route::post('document/create', 'DocumentController@store');
     Route::get('document/create', 'DocumentController@index');
@@ -132,7 +123,12 @@ Route::group(['middleware' => ['auth','comptable']], function () {
     Route::get('/document/sommaire', function () {
         return view('document.sommaire');
     })->name('document/sommaire');
-
-
 });
 
+#Les authentifié client
+Route::group(['middleware' => ['auth','client']], function () {
+    Route::get('/client', 'HomeController@clientIndex')->middleware('client');
+    Route::get('sommaireclient', function () {
+        return view('pages.sommaireclient');
+    })->name('sommaireclient');
+});

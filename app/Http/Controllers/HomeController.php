@@ -21,9 +21,25 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
+    public function index()
+    {
+        if (Auth::user()->role == 'admin')
+        {
+            return redirect('/admin');
+        };
+        if (Auth::user()->role == 'client')
+        {
+            return redirect('/client');
+        };
+        if (Auth::user()->role == 'comptable')
+        {
+            return redirect('/comptable');
+        };
+
+    }
     public function adminIndex()
     {
-        if (!Auth::user()->role == 'admin')
+        if (Auth::user()->role != 'admin')
         {
             return redirect('/permission-denied');
         };
@@ -31,10 +47,18 @@ class HomeController extends Controller
     }
     public function clientIndex()
     {
+        if (Auth::user()->role != 'client')
+        {
+            return redirect('/permission-denied');
+        };
         return view('client');
     }
     public function comptableIndex()
     {
+        if (Auth::user()->role != 'comptable')
+        {
+            return redirect('/permission-denied');
+        };
         return view('comptable');
     }
     public function permissionDenied()

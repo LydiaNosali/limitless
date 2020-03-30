@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="content">
-        <p>Hello client</p>
+        <p>Hello comptable</p>
     </div>
 @endsection

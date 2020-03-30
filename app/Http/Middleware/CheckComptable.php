@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 use Closure;
 
@@ -15,7 +16,7 @@ class CheckComptable
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->role == 'comptable')
+        if (Auth::user()->role != 'comptable')
         {
             return redirect('/permission-denied');
         };

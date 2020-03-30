@@ -26,7 +26,6 @@
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('cliquez ici pour demander un autre') }}</button>.
                     </form>
                 @endif
-              </p>
             </div>
           </div>
       </div>
