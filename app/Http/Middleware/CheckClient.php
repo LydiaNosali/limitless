@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
+
 
 class CheckClient
 {
@@ -17,17 +19,23 @@ class CheckClient
     public function handle($request, Closure $next)
     {
 
-        if (auth()->check() && auth()->user()->date && now()->lessThan(auth()->user()->date)) {
+        if (auth()->check() && auth()->user()->date && (auth()->user()->date)->lessThan(now())) {
             $banned_days = now()->diffInDays(auth()->user()->date);
             auth()->logout();
 
             if ($banned_days > 14) {
-                $message = 'Your account has been suspended. Please contact administrator.';
+                $message = 'Votre compte a été suspendu. Veuillez contacter l\'administrateur.';
             } else {
-                $message = 'Your account has been suspended for '.$banned_days.' '.str_plural('day', $banned_days).'. Please contact administrator.';
+                $message = 'Votre compte a été suspendu depuis '.$banned_days.' '.Str::plural('jours', $banned_days).'. Veuillez contacter l\'administrateur.';
             }
 
             return redirect()->route('login')->withMessage($message);
+        }
+        if (auth()->user()->suspend=='oui'){
+            auth()->logout();
+            $message = 'Votre compte a été bloqué. Veuillez contacter l\'administrateur.';
+            return redirect()->route('login')->withMessage($message);
+
         }
         if (Auth::user()->role != 'client')
         {

@@ -22,7 +22,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin', 'HomeController@adminIndex');
     Route::get('user/suspend', 'UserController@suspend');
     Route::post('user/suspend', 'UserController@suspend');
-
+    Route::get('autocompletededed', 'UserController@searchcompta');
     Route::get('user/desuspend', 'UserController@desuspend');
     Route::post('user/desuspend', 'UserController@desuspend');
 
@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth','comptable']], function () {
     Route::get('autocomplete', 'RepertoireController@search');
     Route::get('autocompleted', 'DocumentController@search');
     Route::get('autocompleteded', 'UserController@search');
-    Route::get('autocompletededed', 'UserController@searchcompta');
+
     Route::post('repertoire/create', 'RepertoireController@store');
     Route::post('repertoire/supprimer', 'RepertoireController@update');
     Route::resource('salaire', 'SalaireController', ['except' => ['show']]);

@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d01f093b-929c-441e-aba2-ac310fb194c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/comptable.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckAdmin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckComptable.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckComptable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -266,7 +259,10 @@
       <workItem from="1584988825459" duration="6000" />
       <workItem from="1585389791122" duration="3707000" />
       <workItem from="1585473458299" duration="22377000" />
-      <workItem from="1585572376654" duration="9804000" />
+      <workItem from="1585572376654" duration="10687000" />
+      <workItem from="1585594724969" duration="5000" />
+      <workItem from="1585758438305" duration="1408000" />
+      <workItem from="1585760555891" duration="2904000" />
     </task>
     <task id="LOCAL-00001" summary="Users">
       <created>1580082641821</created>
@@ -296,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585517060819</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Users">
+      <created>1585589874381</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585589874381</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
