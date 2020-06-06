@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth', 'admin']], function () {
     Route::get('/admin', 'HomeController@adminIndex');
     Route::get('user/suspend', 'UserController@suspend');
     Route::post('user/suspend', 'UserController@suspend');
-    Route::get('autocompletededed', 'UserController@searchcompta');
+    Route::get('autocompletecompta', 'UserController@searchcompta');
     Route::get('user/desuspend', 'UserController@desuspend');
     Route::post('user/desuspend', 'UserController@desuspend');
 
@@ -79,8 +79,8 @@ Route::group(['middleware' => ['auth','comptable']], function () {
     Route::get('document/create', 'DocumentController@index');
     Route::post('document/annuler', 'DocumentController@update');
     Route::get('autocomplete', 'RepertoireController@search');
-    Route::get('autocompleted', 'DocumentController@search');
-    Route::get('autocompleteded', 'UserController@search');
+    Route::get('autocompletedoc', 'DocumentController@search');
+    Route::get('autocompleteclient', 'UserController@search');
 
     Route::post('repertoire/create', 'RepertoireController@store');
     Route::post('repertoire/supprimer', 'RepertoireController@update');

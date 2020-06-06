@@ -18,12 +18,8 @@ class DocumentController extends Controller
     }
 
     public function store(){
-        $repertoire='';
         $id=0;
         $idd=0;
-        $data=request()->validate([
-            'file'=>['required','file'],
-        ]);
         $rep = request('repertoire');
         $resultat=Repertoire::where('repertoire', '=',$rep)
             ->get();
@@ -89,7 +85,7 @@ class DocumentController extends Controller
             }
 
         }
-        Storage::move( 'public/uploads/'.request('document').'.pdf', 'public/Textes organiques Annulés/'.request('document').'.pdf');
+        Storage::move( 'public/uploads/'.request('document').'.pdf', 'public/Documents/'.request('document').'.pdf');
         return view('document.annuler');
     }
 

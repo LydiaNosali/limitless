@@ -2,6 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d01f093b-929c-441e-aba2-ac310fb194c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DocumentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SalaireController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SalaireController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/annuler.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/annuler.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/document/modifier.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/document/modifier.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -260,7 +268,17 @@
       <workItem from="1585572376654" duration="10687000" />
       <workItem from="1585594724969" duration="5000" />
       <workItem from="1585758438305" duration="1408000" />
-      <workItem from="1585760555891" duration="3145000" />
+      <workItem from="1585760555891" duration="3434000" />
+      <workItem from="1585865672091" duration="633000" />
+      <workItem from="1586184075053" duration="2000" />
+      <workItem from="1586266589590" duration="140000" />
+      <workItem from="1586389625267" duration="873000" />
+      <workItem from="1587806313364" duration="2000" />
+      <workItem from="1588001026059" duration="114000" />
+      <workItem from="1588520714581" duration="17000" />
+      <workItem from="1588772100806" duration="272000" />
+      <workItem from="1591456925530" duration="332000" />
+      <workItem from="1591457407724" duration="886000" />
     </task>
     <task id="LOCAL-00001" summary="Users">
       <created>1580082641821</created>
@@ -304,7 +322,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585765215173</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Users">
+      <created>1585765338765</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1585765338765</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SalaireRequest;
 use App\Salaire;
-use Illuminate\Http\Request;
 
 class SalaireController extends Controller
 {

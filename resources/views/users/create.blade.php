@@ -59,7 +59,7 @@
 
                                                         source: function(request, response) {
                                                             $.ajax({
-                                                                url: "{{url('autocompletededed')}}",
+                                                                url: "{{url('autocompletecompta')}}",
                                                                 data: {
                                                                     term : request.term
                                                                 },
